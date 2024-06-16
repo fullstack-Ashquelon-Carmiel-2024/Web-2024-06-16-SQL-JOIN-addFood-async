@@ -50,8 +50,20 @@ module.exports = {
         let image = req.files.image;
 
         // Show some file metadata:
-        console.log(`image.name: ${image.name}`)
-        console.log(`image.mimetype: ${image.mimetype}`)
+        // console.log(`image.name: ${image.name}`)
+        // console.log(`image.mimetype: ${image.mimetype}`)
+        /* image.name: sabich.jpg
+            image.mimetype: image/jpeg
+            */
+
+        let extension = image.mimetype.split('/')[1];
+
+        if (!/^(gif|heic|jpeg|jpg|png|svg|webp)$/.test(extension)) {
+
+            module.exports.message = `Wrong file extension: ${extension}`;
+            return res.redirect('/add');
+
+        }
 
         res.send('<h1>End of "addFood"</h1>')
 
