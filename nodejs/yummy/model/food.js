@@ -65,7 +65,19 @@ module.exports = {
 
         }
 
-        res.send('<h1>End of "addFood"</h1>')
+        let querySQL = `SELECT * FROM food WHERE name = '${foodName}'`;
+
+        db.query(querySQL,(err,result) => {
+
+            if (err) {
+                return res.status(500).send(`<h1>ERROR ${err.message}\n
+                while performing\n
+                ${querySQL}</h1>`);
+            }
+
+            res.send('<h1>End of "addFood"</h1>')
+        })
+        
 
     }
 
