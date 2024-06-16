@@ -1,3 +1,5 @@
+USE classicmodels;
+
 DROP TABLE IF EXISTS `employees`;
 
 CREATE TABLE `employees` (
@@ -11,9 +13,9 @@ CREATE TABLE `employees` (
   `jobTitle` varchar(50) NOT NULL,
   PRIMARY KEY (`employeeNumber`),
   KEY `reportsTo` (`reportsTo`),
-  KEY `officeCode` (`officeCode`),
+  KEY `officeCode` (`officeCode`)/* ,
   CONSTRAINT `employees_ibfk_1` FOREIGN KEY (`reportsTo`) REFERENCES `employees` (`employeeNumber`),
-  CONSTRAINT `employees_ibfk_2` FOREIGN KEY (`officeCode`) REFERENCES `offices` (`officeCode`)
+  CONSTRAINT `employees_ibfk_2` FOREIGN KEY (`officeCode`) REFERENCES `offices` (`officeCode`) */
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 /*Data for the table `employees` */
