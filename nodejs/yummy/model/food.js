@@ -65,6 +65,8 @@ module.exports = {
 
         }
 
+        let imageName = `${foodName}.${extension}`;
+
         let querySQL = `SELECT * FROM food WHERE name = '${foodName}'`;
 
         db.query(querySQL,(err,result) => {
@@ -75,10 +77,47 @@ module.exports = {
                 ${querySQL}</h1>`);
             }
 
-            res.send('<h1>End of "addFood"</h1>')
-        })
+    
+            if (result.length > 0) {
+
+                module.exports.message = `Food named ${foodName} is already exist`;
+                return res.redirect('/add');
+
+            }
+
+            querySQL = `INSERT INTO food (name,kosher_type,cuisine_id,
+                image, calories, prepare_time_min, ingredients,  type_of_dish)
+            VALUES ('${foodName}','${kosherType}',${cuisineId},'${imageName}',
+            ${calories},${prepareTimeMin},'${ingredients}','${typeOfDish}')`;
+
+            db.query(querySQL,(err) => {
+
+                if (err) {
+                    return res.status(500).send(`<h1>ERROR ${err.message}\n
+                    while performing\n
+                    ${querySQL}</h1>`);
+                }
+                // mv() - puts the file to some place in the disk
+                image.mv(`static/assets/img/${imageName}`,(err) => {
+
+                    if (err) {
+                        // t.b.d. - delete the row from the database
+                        // `DELETE FROM food WHERE name = ${foodName}`
+                        return res.status(500).send(`<h1>ERROR ${err.message}\n
+                                while performing mv() of \n
+                                static/assets/img/${imageName}</h1>`);
+                    }
+
+                    res.redirect('/');
+
+                }) // end of image.mv()
+
+            }) // end of db.query('INSERT ...')
+
+            
+        }) // end of db.query('SELECT ...')
         
 
-    }
+    } // end of addFood()
 
 }
