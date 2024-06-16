@@ -2,7 +2,9 @@ module.exports = {
 
   getHomePage: (req,res) => {
 
-    let querySQL = 'SELECT * FROM food';
+    let querySQL = `SELECT f.* , c.name AS cuisine
+                    FROM food f JOIN cuisine c
+                        ON cuisine_id = c.id`;
 
     db.query(querySQL,(err, result) => {
 
