@@ -1,0 +1,17 @@
+{
+  "name": "yummy",
+  "version": "1.0.0",
+  "description": "MVC NodeJS Express + ejs + MySQL project",
+  "main": "yummy.js",
+  "scripts": {
+    "start": "nodemon yummy.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "mysql2": "^3.10.0"
+  }
+}

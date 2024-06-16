@@ -1,0 +1,106 @@
+CHALLENGEs are OPTIONAL
+
+00. Create directory panda/your_name/hw/hw-2024-06-06
+00. Create directory panda/your_name/projects/<your-nodejs-mysql>
+00. Create directory panda/your_name/projects/07-hangman etc.
+
+0. Projects
+   00-portfolio - get some ideas, what do you want 
+   00-tic-tac-toe - 30.04.2024
+   01-is-it-a-prime-number - 30.04.2024
+   02-css-explanator - 30.04.2024
+   03-questionnaire - 8.05.2024
+   04-binary-guessing - 16.05.2024 - small groups
+   05-string-games - "fix the clock","random quote",
+       "palindrome" and "gematria" parts - 30.05.2024
+   06-nim - 23.05.2024 - small groups
+   07-hangman - 5.06.2024 - small groups
+         with both "mouse click" and "keyboard" events,
+         with minimum of the listeners - using
+                         event propagation
+
+   08-NodeJS-SQL-Your-Theme - choose your theme and
+                              create database with data
+
+   Optional Projects:
+      - Canvas "Breakout Game"
+      - "Endless Dangers" - see the description below
+      - "Dreidel"
+      - "Memory Game" - see the beginning files and 
+          the example of how to flip card inside 
+          the "projects/optional/memory-game" dir
+      - "Math Practice" - Optional project of math-practice 
+         with drops containing math exercises and 
+         going down. 
+         When the player types right answer, 
+         the drop should stop or disappear or 
+         make some other response. 
+      - "One page site with smooth scrolling" - like YummyIsrael
+
+
+1. In parallel with our project "about food" 
+   continue your own project 
+   08-NodeJS-SQL-Your-Theme - 
+   choose your theme and
+   create database with data, create the server,
+   select the data and show the homepage.
+   Use Cookbook002
+
+2. String Games project + regular expressions.
+
+   Everywhere in the project where use "replaceAll()" functions 
+   to remove commas, dots, exclamation marks, spaces, etc.
+   use one "replace()" with regular expression
+
+3. Regular Expressions
+  I.let report = 'string theory'
+    a) Use "test()". Check if "report" contains "ring".
+       If it is, say "mission succeeded", otherwise say,
+        "mission failed".
+
+    b) Use "test()". Check if "report" not contains "fire".
+       If it is not, say "mission is safe", otherwise say,
+        "mission compromised". 
+
+  II. let words = ['cat', 'attempt', 'tattle']
+
+      a) Use "filter()" and "test" and get new array with 
+      all the elements that contain 'tt'
+
+      b) Use "every()" and "test()" and return true if
+         all the elements contain "at"
+
+      c) Use "some()" and "test()" and return true if any element
+         contains "stat".
+
+  III. Create function hateDigits(str) that gets a string as a parameter
+       and shows 😄 if there are no digits, no "-", no "+", no "=",
+       no "<" and no ">" and returns 😠 if there is at least one 
+       digit or one of the above mentioned characters.
+       The function should use ^
+
+       let strings = ['051-314-2789','<main>','Sweet Potato',
+       'day,noon,night,midnight','night and day', 'like night and day',
+       'day + night','midday - midnight','sunday = monday',
+       'day by day']
+
+      Run the function hateDigits over the above array "strings"
+      and show each element together with the result of the function call.
+
+  IV. Write a function nightAndDay(str) that gets a string as a parameter
+      and shows it only if it has string of "day" or "night" at
+      any end and in addition if the string starts with "day" 
+      and ends with "night" shows in the beginning of it 🌞 and 🌛
+      in the end of it.
+
+      Use this function to go over the array "strings". 
+
+4. splice() - optional, just if you don't remember 
+   numAr = [1,2,3,4,5,6,7,8]
+
+   a) delete 2 from the array 
+   b) replace 6 and 7 by 666, 777 and 1001
+
+
+
+
