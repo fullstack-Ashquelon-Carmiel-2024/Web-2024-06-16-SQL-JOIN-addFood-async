@@ -940,4 +940,69 @@ module.exports = {
 
 35. Check now that you see the <select> with all it's <option>s
 
-36. 
+36. Add to food.js function for adding food data:
+
+    },
+
+    addFood: (req, res) => {
+
+        console.log(req.body)
+        res.send('<h1>End of "addFood"</h1>')
+
+    }
+
+37. Add routing for POST request
+(GET - get some data and show in the browser 
+        it uses req.url and req.params,
+POST - asks to add some data to the server,
+       uses req.url, req.params and req.body
+       
+       Classic usage of POST - for submitting form data)
+in yummy.js:
+
+/******* ROUTING *********/
+// GET - HTTP method, that asks to bring some
+// data or page, sometimes, in accordance to parameters
+app.get('/',home.getHomePage);
+
+app.get('/add',food.getAddPage);
+app.post('/add',food.addFood);
+
+38. In another window of GIT BUSH install
+the package for uploading files:
+
+$ npm i express-fileupload
+
+39. Import it in yummy.js:
+
+const fileUpload = require('express-fileupload');
+
+40. Add to middleware (in yummy.js):
+
+
+/******* MIDDLEWARE *********/
+app.use(express.static(path.join(__dirname,'static')));
+
+app.use(express.urlencoded({extended:true})); // if we've got form data, converts it to json
+app.use(express.json());// converts json into object
+
+app.use(fileUpload());
+
+/******* ROUTING *********/
+
+41. In yummy.js use CHOICE OPERATOR || :
+
+const express = require('express');
+const mysql = require('mysql2');
+const path = require('path');
+require('ejs');
+const fileUpload = require('express-fileupload');
+
+const home = require('./model/home');
+const food = require('./model/food');
+
+/********** VARIABLES **********/
+// CHOICE OPERATOR || - if we've got a value we use it, if not we want it to be 3053
+let port = process.env.PORT || 3053;
+
+42. 

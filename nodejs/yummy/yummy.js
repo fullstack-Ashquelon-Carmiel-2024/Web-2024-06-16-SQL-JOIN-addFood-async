@@ -2,13 +2,14 @@ const express = require('express');
 const mysql = require('mysql2');
 const path = require('path');
 require('ejs');
-const fs = require('fs');
+const fileUpload = require('express-fileupload');
 
 const home = require('./model/home');
 const food = require('./model/food');
 
 /********** VARIABLES **********/
-let port = process.env.PORT ? process.env.PORT : 3053;
+// CHOICE OPERATOR || - if we've got a value we use it, if not we want it to be 3053
+let port = process.env.PORT || 3053;
 
 /*********** DB CONNECTION **********/
 const db = mysql.createConnection({
@@ -44,6 +45,11 @@ app.set('views', path.join(__dirname,'views'));
 
 /******* MIDDLEWARE *********/
 app.use(express.static(path.join(__dirname,'static')));
+
+app.use(express.urlencoded({extended:true})); // if we've got form data, converts it to json
+app.use(express.json());// converts json into object
+
+app.use(fileUpload());
 
 /******* ROUTING *********/
 // GET - HTTP method, that asks to bring some
