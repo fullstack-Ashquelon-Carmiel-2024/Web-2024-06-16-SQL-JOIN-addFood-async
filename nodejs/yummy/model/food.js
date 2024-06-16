@@ -18,6 +18,13 @@ module.exports = {
 
         })
 
+    },
+
+    addFood: (req, res) => {
+
+        console.log(req.body)
+        res.send('<h1>End of "addFood"</h1>')
+
     }
 
 }

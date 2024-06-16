@@ -51,6 +51,7 @@ app.use(express.static(path.join(__dirname,'static')));
 app.get('/',home.getHomePage);
 
 app.get('/add',food.getAddPage);
+app.post('/add',food.addFood);
 
 /*********LISTENER *********/
 app.listen(port, () => {
